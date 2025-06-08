@@ -61,7 +61,7 @@ public class Main {
         mainPanel.add(comidaComboBox);
         mainPanel.add(accesibilidadCheckBox);
         mainPanel.add(traduccionCheckBox);
-        mainPanel.add(new JLabel("Genero"));
+        mainPanel.add(new JLabel("Género"));
         JPanel generoPanel = new JPanel(new FlowLayout());
         generoPanel.add(femeninoRadioButton);
         generoPanel.add(masculinoRadioButton);
