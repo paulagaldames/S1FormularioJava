@@ -1,6 +1,8 @@
 //importamos las librerias correspondientes
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.border.EmptyBorder;
 
 
@@ -65,6 +67,42 @@ public class Main {
         generoPanel.add(masculinoRadioButton);
         mainPanel.add(generoPanel);
         mainPanel.add(submitButton);
+
+        //manejo del evento del boton de envio
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nombre = nombreText.getText();
+                String correo = correoText.getText();
+                String telefono = telefonoText.getText();
+                String evento = eventoComboBox.getSelectedItem().toString();
+                String comida = comidaComboBox.getSelectedItem().toString();
+                String genero = femeninoRadioButton.isSelected() ? "Femenino" : "Masculino";
+
+                StringBuilder requerimientos = new StringBuilder("Requerimientos especiales: ");
+                if (accesibilidadCheckBox.isSelected()) {
+                    requerimientos.append("Accesibilidad para discapacitados \n ");
+                }
+                if (traduccionCheckBox.isSelected()) {
+                    requerimientos.append("Requiero traducción ");
+                }
+                if (!accesibilidadCheckBox.isSelected() && !traduccionCheckBox.isSelected()) {
+                    requerimientos.append("Ninguna preferencia ");
+                }
+
+                //mostrar en consola
+                System.out.println("**********************************************");
+                System.out.println("Nombres: " + nombre);
+                System.out.println("Coreo electrónico: " + correo);
+                System.out.println("Teléfono: " + telefono);
+                System.out.println("Evento al cuál asistirá: " + evento);
+                System.out.println("Preferencia de comida: " + comida);
+                System.out.println("Genero: " + genero);
+                System.out.println(requerimientos.toString());
+                System.out.println("**********************************************");
+
+            }
+        });
 
 
         frame.add(mainPanel);
