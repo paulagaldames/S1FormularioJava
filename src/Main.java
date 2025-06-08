@@ -1,8 +1,7 @@
 //importamos las librerias correspondientes
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.border.EmptyBorder;
 
 
 public class Main {
@@ -10,8 +9,9 @@ public class Main {
 
         JFrame frame = new JFrame("Registro de Eventos - Universidad Albert Einstein");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 400);
-        frame.setLayout(new GridLayout(9, 2, 10, 10));
+        frame.setSize(700, 500);
+        JPanel mainPanel = new JPanel(new GridLayout(9, 2, 15, 15));
+        mainPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
 
         //etiquetas label
         JLabel nombreLabel = new JLabel("Nombre:");
@@ -44,7 +44,30 @@ public class Main {
         //boton de envio
         JButton submitButton = new JButton("Enviar");
 
+        //agregamos los componentes al formulario
+        mainPanel.add(nombreLabel);
+        mainPanel.add(nombreText);
+        mainPanel.add(correoLabel);
+        mainPanel.add(correoText);
+        mainPanel.add(telefonoLabel);
+        mainPanel.add(telefonoText);
+        mainPanel.add(new JLabel("Eventos a los que asistira"));
+        mainPanel.add(eventoComboBox);
+        mainPanel.add(eventoComboBox);
+        mainPanel.add(new JLabel("Preferencia de comida:"));
+        mainPanel.add(comidaComboBox);
+        mainPanel.add(comidaComboBox);
+        mainPanel.add(accesibilidadCheckBox);
+        mainPanel.add(traduccionCheckBox);
+        mainPanel.add(new JLabel("Genero"));
+        JPanel generoPanel = new JPanel(new FlowLayout());
+        generoPanel.add(femeninoRadioButton);
+        generoPanel.add(masculinoRadioButton);
+        mainPanel.add(generoPanel);
+        mainPanel.add(submitButton);
 
 
+        frame.add(mainPanel);
+        frame.setVisible(true);
     }
 }
